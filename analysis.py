@@ -139,5 +139,23 @@ plt.ylabel('Product Line')
 plt.tight_layout()
 plt.show()
 
+# ------------------------------------------
+# Sales by Gender & Product Line
+# ------------------------------------------
+
+# Group by gender and product line, sum total sales
+gender_product_sales = df.groupby(['gender', 'product_line'])['total'].sum().unstack()
+
+# Plot grouped bar chart
+gender_product_sales.plot(kind='bar', figsize=(10, 6))
+plt.title('Total Sales by Gender and Product Line')
+plt.xlabel('Gender')
+plt.ylabel('Total Sales')
+plt.xticks(rotation=0)
+plt.legend(title='Product Line', bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.tight_layout()
+plt.show()
+
+
 
 
