@@ -123,4 +123,21 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
+# ------------------------------------------
+# Top Product Lines by Total Revenue
+# ------------------------------------------
+
+# Total revenue by product line
+top_products = df.groupby('product_line')['total'].sum().sort_values(ascending=False)
+
+# Plot the top product lines
+plt.figure(figsize=(8, 5))
+sns.barplot(x=top_products.values, y=top_products.index, palette='Purples')
+plt.title('Top Product Lines by Revenue')
+plt.xlabel('Total Sales')
+plt.ylabel('Product Line')
+plt.tight_layout()
+plt.show()
+
+
 
