@@ -156,6 +156,25 @@ plt.legend(title='Product Line', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.tight_layout()
 plt.show()
 
+# ------------------------------------------
+# Average Sales by Hour
+# ------------------------------------------
+
+# Group by hour and calculate average total sales
+avg_sales_hour = df.groupby('hour')['total'].mean()
+
+# Plot average sales by hour
+plt.figure(figsize=(8, 5))
+avg_sales_hour.plot(marker='o', color='teal')
+plt.title('Average Sales by Hour')
+plt.xlabel('Hour of Day')
+plt.ylabel('Average Sales')
+plt.xticks(range(24))
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+
 
 
 
