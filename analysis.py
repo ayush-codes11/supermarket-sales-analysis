@@ -100,3 +100,27 @@ plt.title('Distribution of Payment Methods')
 plt.tight_layout()
 plt.show()
 
+# ------------------------------------------
+# Monthly Sales Trend
+# ------------------------------------------
+
+# Convert the 'date' column to datetime (if not already)
+df['invoice_date'] = pd.to_datetime(df['date'])
+
+# Extract the month in YYYY-MM format
+df['month'] = df['invoice_date'].dt.to_period('M')
+
+# Group by month and calculate total sales
+monthly_sales = df.groupby('month')['total'].sum()
+
+# Plotting the monthly sales trend
+plt.figure(figsize=(8, 5))
+monthly_sales.plot(marker='o', color='coral')
+plt.title('Monthly Sales Trend')
+plt.xlabel('Month')
+plt.ylabel('Total Sales')
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+
